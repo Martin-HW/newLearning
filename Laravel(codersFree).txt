@@ -1,0 +1,206 @@
+/*laravel*//*laravel*/
+/*laravel*//*laravel*/
+
+study mysql
+study java syntax
+study git
+
+
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+
+install xampp
+install composer
+install git
+
+c>xampp>htdocs(in git bash)
+composer global require laravel/installer
+php -v
+laravel new martinproject
+c>xampp>htdocs>martinproject
+http://localhost/martinproject/public
+http://localhost/shogunexamples/
+
+download vscode
+resources>views>welcome.blade.php    <title>Coders Free</title>
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+
+use Illuminate\Support\Facades\Route;
+routes>web.php
+Route::get("/",function(){return "This is Home"});
+http://localhost/shogunexamples/public/
+
+Route::get("cursos",function(){return "This is Courses"});
+http://localhost/shogunexamples/public/cursos
+
+Route::get("courses/{course}", function($curso){
+    return "Welcome to course: $curso";
+});
+
+install laravel snippets
+
+Route::get("courses/{team}/{player?}", function($team, $player = null){
+    if($player){
+        return "team is $team and player is $player";
+    }else{
+        return "team is $team";
+    }
+});
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+VIDEO 3
+
+app>Http>Controllers (creating a controller)
+xampp>htdocs>martinproject (git bash)
+php artisan make:controller HomeController
+app>Http>Controllers>HomeController.php
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+class HomeController extends Controller{}
+
+1.-routes>web.php
+use Illuminate\Support\Facades\Route;
+type
+use App\Http\Controllers\HomeController;
+Route::get('/', HomeController::class);
+
+2.-app>Http>Controllers>HomeController.php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller{
+    public function __invoke(){
+        return "welcome to cucuy ferguson";
+    }
+}
+
+3.-create another controller
+(__invoke function controlls 1 route not more)
+xampp>htdocs>blog (git bash)
+php artisan make:controller CursoController (type in git bash)
+go to app>Http>Controllers>CursoController.php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class CursoController extends Controller{
+    public function index(){
+        return "welcome to main page 14/12";
+    }
+
+    public function create(){
+        return "welcome to create 14/12";
+    }
+
+    public function show($curso){
+        return "welcome to $curso 14/12";
+    }
+
+}
+go to routes>web.php
+type
+use App\Http\Controllers\CursoController;
+install php Intelephense (extension)
+type 
+Route::get('/', HomeController::class);
+Route::get('cursos',[CursoController::class,'index']);
+Route::get('cursos/create', [CursoController::class,'create']);
+Route::get('cursos/{curso}', [CursoController::class,'show']);
+
+Route::get("/", "UnoController"); // laravel 7
+Route::get("/", "DosController@index"); // laravel 7
+
+***study this part***study this part***study this part***study this part***
+app>Providers>RouteServiceProvider.php
+type
+protected $namespace = "App\Http\Controllers";
+->namespace($this->namespace);
+
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+
+VIDEO 04
+
+resouces>views
+create a doc named home.php
+since the name of several routes is cursos 
+let's create a folder named cursos like so:
+resouces>views>cursos
+inside cursos folder create:
+index.php
+create.php
+show.php
+create a html doc in index.php,create.php,show.php
+!+tab === html doc
+app>Http>Controllers>HomeController
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller{
+    public function __invoke(){
+        return view('home');
+    }
+}
+
+
+app>Http>Controllers>CourseController
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class CursoController extends Controller{
+    public function index(){
+        return view('cursos.index');      
+    }
+
+    public function create(){
+        return view('cursos.create');
+        // return "welcome to create 14/12";
+    }
+
+    public function show($curso){    
+        return view('cursos.show', compact('curso')); //['curso' => $curso]
+        // return "welcome to $curso 14/12";
+    }
+
+}
+<h1>Hello from show <?php echo $curso; ?></h1>
+
+|*|*|*|study this part|*|*|*|study this part|*|*|*|study this part|*|*|*|study this part|*|*|*|
+|*|*|*|study this part|*|*|*|study this part|*|*|*|study this part|*|*|*|study this part|*|*|*|
+resources>views>
+create a folder named layouts
+resources>views>layouts>
+create a doc named plantilla.blade.php
+resources>views>layouts>plantilla.blade.php
+type
+<title>@yield('title')</title>
+<body>@yield('content')</body>
+home.php
+@extends('layouts.plantilla') 
+install (extension) laravel blade snippets
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+/********************************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

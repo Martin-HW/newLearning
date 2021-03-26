@@ -1,0 +1,196 @@
+
+https://github.com/iamshaunjp/Vue-3-Firebase
+npm install -g @vue/cli
+vue --version
+vue create martin-project
+lesson8
+lesson9
+lesson10
+<div v-show="showBooks">currently showing books</div>
+lesson11
+<div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+lesson12
+lesson13
+<a :href="url">Best website ever!</a>
+<img :src="book.img" :alt="book.title">
+lesson14
+<li v-for="book in books" :class="{ fav: book.isFav }">
+lesson15
+lesson16
+books: [
+        { title: 'name of the wind', author: 'patrick rothfuss', img: 'assets/1.jpg', isFav: true },
+        { title: 'the way of kings', author: 'brandon sanderson', img: 'assets/2.jpg', isFav: false },
+        { title: 'the final empire', author: 'brandon sanderson', img: 'assets/3.jpg', isFav: true },
+      ]
+toggleFav(book) {
+      book.isFav = !book.isFav;
+    }
+<li v-for="book in books" :class="{ fav: book.isFav }" @click="toggleFav(book)">
+lesson17
+computed: {
+    filteredBooks() {
+      return this.books.filter(book => book.isFav)
+    }
+-check full app
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+lesson19ModalProject
+lesson21
+lesson23
+lesson24
+lesson25
+<div class="modal" :class="{ sale: theme === 'sale' }">
+lesson26
+<Modal :heading="heading" :text="text" theme="sale" @close="toggleModal" />
+
+<div class="backdrop" @click="closeModal">
+methods: {
+    closeModal() {
+      this.$emit('close')
+    }
+lesson27
+<button @click.alt="toggleModal">open modal (alt click)</button>
+<div class="backdrop" @click.self="closeModal">
+lesson28
+<template v-slot:links>
+        <a href="#">sign up now</a>
+        <a href="#">more info</a>
+</template>
+<slot>default content (if no slot passed in)</slot>
+<div class="actions">
+	<slot name="links"></slot>
+</div>
+lesson29 check all the lesson
+lesson30 check all the lesson
+<teleport to="#modals" v-if="showModal">
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+lesson31 reaction-timer
+lesson32
+this.delay = 2000 + Math.random() * 5000
+lesson33
+<button @click="isPlaying = false" :disabled="!isPlaying">End game</button>
+mounted() {
+    console.log('component mounted')
+    setTimeout(() => {
+      this.showBlock = true
+      console.log(this.delay)
+    }, this.delay)
+  },
+  updated() {
+    console.log('component updated')
+  },
+  unmounted() {
+    console.log('component unmounted')
+  }
+}
+lesson34
+
+lesson37 check entire app
+
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+
+lesson38 SignupForm.vue
+lesson39
+<label>Email:</label>
+<input type="email" v-model="email" required>
+<p>Email: {{ email }}</p>
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+    }
+  }
+}
+lesson40
+<select v-model="role">
+   <option value="developer">Web Developer</option>
+   <option value="designer">Web Designer</option>
+</select>
+<p>Your role: {{ role }}</p>
+lesson41
+<div class="terms">
+      <input type="checkbox" v-model="terms" required>
+      <label>Accept terms and conditions</label>
+</div>
+
+    <div>
+      <input type="checkbox" value="shaun" v-model="names">
+      <label>shaun</label>
+    </div>
+    <div>
+      <input type="checkbox" value="yoshi" v-model="names">
+      <label>yoshi</label>
+    </div>
+    <div>
+      <input type="checkbox" value="mario" v-model="names">
+      <label>mario</label>
+    </div>
+<p>Email: {{ email }}</p>
+<p>Password: {{ password }}</p>
+<p>Your role: {{ role }}</p>
+<p>Terms accepted: {{ terms }}</p>
+<p>Names: {{ names }}</p>
+data() {
+    return {
+      email: '',
+      password: '',
+      role: 'developer',
+      terms: false,
+      names: [],
+    }
+}
+lesson42
+<label>Skills (press alt + comma to add):</label>
+<input type="text" v-model="tempSkill" @keyup.alt="addSkill">
+<div v-for="skill in skills" :key="skill">
+   {{ skill }}
+</div>
+data() {
+    return {
+      skills: [],
+      tempSkill: '',
+    }
+ }
+methods: {
+    addSkill($event) {
+      console.log($event)
+      if($event.key === ',' && this.tempSkill) {
+        if (!this.skills.includes(this.tempSkill)) {
+          this.skills.push(this.tempSkill)
+        }
+        this.tempSkill = ''
+      }
+    },
+  }
+lesson43
+check full app
+lesson44
+check full app
+
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+/*******************************************************************************************************************/
+
+lesson46 ninja-jobs
+lesson57 project-planner
+lesson58
+lesson59
+lesson60
+lesson61DELETE
+
+64
+ 
+
+
+
+
+
+
+
+
