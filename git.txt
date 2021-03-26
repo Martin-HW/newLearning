@@ -29,5 +29,6 @@ git push -u origin master
 modify the code in my app
 git add .
 git commit -m "mymessage"
+git push --set-upstream origin master
 git push 
 
