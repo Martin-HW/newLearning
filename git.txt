@@ -1,0 +1,33 @@
+https://www.youtube.com/channel/UC2PK2F-XwotXK2zHf7GaBPA/videos
+git help (shows all the commands)
+git --version
+git config --global user.name “Martin Suarez”
+git config --global user.email “martin@gmail.com”
+git config --global -e **to check the configuration writtable
+git config --global -l **to check the configuration lecture
+
+
+
+
+git config --list
+git reflog
+git log 
+
+
+BLUUWEB
+git init 
+git status -s
+git add . 
+git commit -m "mymessage"
+git log --oneline (shows all the commits)
+git reset --hard f52f32d
+create a repo
+take this line and paste it into the command line:
+git remote add origin https://github.com...
+take this line and paste it into the command line:
+git push -u origin master
+modify the code in my app
+git add .
+git commit -m "mymessage"
+git push 
+
